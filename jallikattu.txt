@@ -1,0 +1,259 @@
+> library(twitteR)
+> library(tm)
+> library(wordcloud)
+> library(ggplot2)
+> consumer_key<-''
+> 
+> consumer_secret<-''
+> access_token<-''
+> access_secret<-''
+> setup_twitter_oauth(consumer_key,consumer_secret,access_token,access_secret)
+[1] "Using direct authentication"
+
+> jallikattu_tweets<-searchTwitter('jallikattu+BanPETA',lang = 'en',n=50,resultType = "Recent")
+> jallikattu_tweets
+[[1]]
+[1] "DurgaPrasadAudi: We need #PowerStar support for #jallikattu and for  #BanPETA ,#BanPETAIndia, #BANPETACanada.#APSpecialStatus Please sir @ActorSeenivasan\xed??\xed?\u008f"
+
+[[2]]
+[1] "Seeni_Karuppa: @sublue22 @imAnand_M truth is this idiot @nekzaad doesn't know what is Jallikattu actually but claim cruelty, useless creature #Banpeta"
+
+[[3]]
+[1] "ranjith_android: RT @sathish_cp: #jallikattu #banpeta #bancokepepsi @PepsiIndia @CocaCola  Theni traders to ban cool drinks sale till getting a solution for…"
+
+[[4]]
+[1] "keerthijeyaraj: #JallikattuSuccess #BanPeTA. It's a victory for everyone who fought #Jallikattu from #Marina - #Manhattan -... https://t.co/ctHQx95yJP"
+
+[[5]]
+[1] "nkumarm: @ANI_news backfiring for PETA. \xed??\xed?\u0089#jallikattu #Kambala #BanPeta"
+
+[[6]]
+[1] "ebbyfalcon: RT @KarthiSOfficial: South indians are join to Save our culture #jallikattu #Kambala #kalapoottu , Really happy to see Our Unity \xed??\xed?\u008e\xed??\xed?? #BanPet…"
+
+[[7]]
+[1] "MsivaroshanM: Not still a victory still they are arguing that there is a cruelty in #jallikattu #BanPeta https://t.co/xHTbS0616A"
+
+[[8]]
+[1] "kjay0012: RT @sathvijay: #BanPeta Leading lady of Peta in Cigar &amp; high Spirits' talks of .......Culture to Indians? \n#jallikattu https://t.co/N3WnnKb…"
+
+[[9]]
+[1] "Karthiksara_csk: #jallikattu\nWe've set examples for those in Karnataka and Assam, they have started against PETA.\n#BanPeta @iam_str \n#Kambala\nThamizhan da."
+
+[[10]]
+[1] "preethiammu979: RT @Jonvj22: @PetaIndia #peta my grandma has special message for your ceo #poorvajoshipura who challenged #TN in #jallikattu #BanPeta #Banp…"
+
+[[11]]
+[1] "asil_kewal: RT @KesavanVBK: Dear SC, ban cigarettes and alcohol first before helping organisations to eradicate our cultures. #ISupportJallikattu #BanP…"
+
+[[12]]
+[1] "babussrinivasan: We asked to Ban PETA but government banned not to protest in Marina. Useless government. #jallikattu #JusticeforJallikattu  #BanPeta"
+
+[[13]]
+[1] "AdhuIdhu: @Claudio8Rotunno @TheEconomist #Protection is not main action of #PETA #killing is https://t.co/e8L1AsEMFN\n#jallikattu #hypocrisy #BanPeta"
+
+[[14]]
+[1] "DurgaPrasadAudi: It is time to wakeup #PETA #PETAINDIA.\xed??\xed??\xed??\xed??\xed??\xed??\n#BanPETA #BANPETAINDIA #jallikattu"
+
+[[15]]
+[1] "iam_vadi: RT @KollywoodMadnez: #BanPepsiAndCoke #BanPeta #Banpetaindia #peta save #jallikattu #JallikattuForSure #Jallikattuprotest @KollywoodMadnez…"
+
+[[16]]
+[1] "IzzyE_Pimpin: RT @ArnoldDhina: Kindly #RT this Video As much as possible guys \n \n#Jallikattu #BanPeta \n\n https://t.co/TnnY1vJHie #JallikattuSlogans"
+
+[[17]]
+[1] "iampouda: @PetaIndia thats' y #poorvajoshipura &amp; #Peta staves should use bicycle 2 b a perf. example 4 de society \xed??\xed?\u0082 #jallikattu #BanPeta #Banpetaindia"
+
+[[18]]
+[1] "ruslannosovziv: RT @vinnvish: #jallikattu WE SHOULD ENCOURAGE THIS AND TRY TO LIVE WITH WHAT WE ALREADY HAVE WHICH IS THE BEST.  @petaindia  #BanPETA https…"
+
+[[19]]
+[1] "Seeni_Karuppa: @nekzaad that we will take care, you do as usual photoshop and all edits, no one gonna believe. We did Jallikattu #Banpeta @Anand_edge"
+
+[[20]]
+[1] "Seeni_Karuppa: @nekzaad thanks dear. Btw what is Jallikattu, still you didn't answer me but running away lyk you got fire in your tail @Anand_edge #Banpeta"
+
+[[21]]
+[1] "srividya23: RT @VLagvankar: #PETA - Animal Killing Board of India..today they were protesting against jallikattu... Don't suprt them..#BanPETA #savekam…"
+
+[[22]]
+[1] "srividya23: RT @boopalsridhar: Be it Kambala or Jallikattu, People of Mangaluru/Madurai know better about breeds than useless PETA #BanPETA #SaveKambal…"
+
+[[23]]
+[1] "sathvijay: #BanPeta Leading lady of Peta in Cigar &amp; high Spirits' talks of .......Culture to Indians? \n#jallikattu https://t.co/N3WnnKbtR4"
+
+[[24]]
+[1] "shaku19379836: RT @manoj_dhanush: #sathyabama university..  #banpeta  #jallikattu \n\n#JusticeforJallikattu #SaveOurCultureJALLIKATTU \n\n@hiphoptamizha @iam_…"
+
+[[25]]
+[1] "Subash36393029: RT @KollywudCinema: #NagarKoil Youths Support #JalliKattu\n\n#JusticeforJallikattu #SaveOurCultureJALLIKATTU #BanPeta #AmendPCAact #jan18th8p…"
+
+[[26]]
+[1] "ibrahimsha89: RT @ArnoldDhina: Kindly #RT this Video As much as possible guys \n \n#Jallikattu #BanPeta \n\n https://t.co/TnnY1vJHie #JallikattuSlogans"
+
+[[27]]
+[1] "RajaMathiyalaga: Feeling pain in the ASS? Wait, not yet finished, our neighbours are coming. #SaveKambala #BanPeta #Kambala… https://t.co/bm3UCI1WvC"
+
+[[28]]
+[1] "MurugesanYadav: I support #Kambala. Save the tradition #jallikattu #Kambala #BanPeta #Karnataka #Tamilanda"
+
+[[29]]
+[1] "Luqz1805: @HuffPostIndia @PetaIndia banned #Jallikattu so we want to #BanPeta, if they are cared about animal &amp; culture they would've given guidelines"
+
+[[30]]
+[1] "giveawaynelo: South indians are join to Save our culture #jallikattu #Kambala #kalapoottu , Really happy to see Our Unity  #BanPeta is only our Target"
+
+[[31]]
+[1] "KarthiSOfficial: South indians are join to Save our culture #jallikattu #Kambala #kalapoottu , Really happy to see Our Unity \xed??\xed?\u008e\xed??\xed?? #BanPeta is only our Target \xed??\xed?\u008a"
+
+[[32]]
+[1] "1995parthiban: We have backed #jallikattu .now time for others to back their cultural values like #Kambala in #Karnataka, #kalapoottu  in #kerala #BanPeta"
+
+[[33]]
+[1] "ViswajitRaman: @GnanasekarASho7 @PetaIndia @PakkaTv @YouTube sati dowry is not part of tradition. Don't sing ur insinuated tunes. #banpeta #jallikattu"
+
+[[34]]
+[1] "Jayakrishna117: Proud moment for #TNyoungsters now Karnataka is following us to save #Kambala #BanPeta #jallikattu #protestofpeace dreams of #apj"
+
+[[35]]
+[1] "master_chandru: RT @ArnoldDhina: Kindly #RT this Video As much as possible guys \n \n#Jallikattu #BanPeta \n\n https://t.co/TnnY1vJHie #JallikattuSlogans"
+
+[[36]]
+[1] "_M1311: RT @KollywudCinema: #NagarKoil Youths Support #JalliKattu\n\n#JusticeforJallikattu #SaveOurCultureJALLIKATTU #BanPeta #AmendPCAact #jan18th8p…"
+
+[[37]]
+[1] "1asutoshmohanty: I Support #Kambala #BanPETA\nPETA– an anti-India, anti-Hindu organization that needs to be banned right now\nhttps://t.co/zmMI7GU0iN"
+
+[[38]]
+[1] "AswiniRaj08: RT @Jallikatu_kovai: @peta @PetaIndia @PETAUK @PETA_Latino #BANPETAINDIA #BANPETA #JALLIKATTU #MAKKALMOVEMENT ROFL \xed??\xed?\u0082\xed??\xed?\u0082\xed??\xed?\u0082 https://t.co/BhvKD0Y…"
+
+[[39]]
+[1] "aundykmahesh: Now it's time to bring back #Kambala #WeNeedKambala #SaveKambala  #jallikattu #BanPeta"
+
+[[40]]
+[1] "anu07016842: RT @vinnvish: #jallikattu WE SHOULD ENCOURAGE THIS AND TRY TO LIVE WITH WHAT WE ALREADY HAVE WHICH IS THE BEST.  @petaindia  #BanPETA https…"
+
+[[41]]
+[1] "livenewsfans: RT @RanjithVallavan: Yes this is Youth revolution\n#SaveOurCultureJALLIKATTU \n#JusticeforJallikattu \n#BanPeta \n#bancokepepsi \n#WeWantJallika…"
+
+[[42]]
+[1] "vinnvish: #jallikattu WE SHOULD ENCOURAGE THIS AND TRY TO LIVE WITH WHAT WE ALREADY HAVE WHICH IS THE BEST.  @petaindia… https://t.co/qKlk242p6y"
+
+[[43]]
+[1] "joseph_jissen: RT @thala_speaks: Support from #Berlin #Germany for #Jallikattu \nLot of Inspiring Speeches \n#Jallikattuprotest \n#BanPeta AMEND PCA ACT SOON…"
+
+[[44]]
+[1] "DurgaPrasadAudi: We need #PowerStar support for #jallikattu and for  #BanPETA ,#BanPETAIndia, #BANPETACanada ,#APSpecialStatus Please sir @ActorSeenivasan \xed??\xed?\u008f"
+
+[[45]]
+[1] "bsnlraj9122: RT @Jallikatu: Ajith &amp; Suriya in Black For #jallikattu \n\nThank You For Your Support \n\n#BanPeta  #NadigarSangamProtest https://t.co/TABwkPH1…"
+
+[[46]]
+[1] "GSpavi: RT @Jallikatu_kovai: @peta @PetaIndia @PETAUK @PETA_Latino #BANPETAINDIA #BANPETA #JALLIKATTU #MAKKALMOVEMENT ROFL \xed??\xed?\u0082\xed??\xed?\u0082\xed??\xed?\u0082 https://t.co/BhvKD0Y…"
+
+[[47]]
+[1] "romanbsslyudin: RT @manemaran_d: #BanPeta support #jallikattu"
+
+[[48]]
+[1] "sasti_fm: RT @Smemes420: Happy Republic Day\n\n#BoganFromFeb2 #Bogan #jallikattu #JallikattuForever #JallikattuSlogans #BanPeta #BanPepsiCokeFromTN htt…"
+
+[[49]]
+[1] "Smemes420: Happy Republic Day\n\n#BoganFromFeb2 #Bogan #jallikattu #JallikattuForever #JallikattuSlogans #BanPeta… https://t.co/O9wyDpUQRJ"
+
+[[50]]
+[1] "harishchellappa: RT @Muthuku37277618: Yes, this sucks our farmer's blood and ours too #jallikattu #BanPeta #bancokepepsi https://t.co/VZsrS1var9"
+
+> jallikattu_text<-sapply(jallikattu_tweets,function(x) x$getText())
+> class(jallikattu_text)
+[1] "character"
+> jallikattu_corpus<-Corpus(VectorSource(jallikattu_text)
++ )
+> jallikattu_corpus
+<<VCorpus>>
+Metadata:  corpus specific: 0, document level (indexed): 0
+Content:  documents: 50
+> inspect(jallikattu_corpus)
+<<VCorpus>>
+Metadata:  corpus specific: 0, document level (indexed): 0
+Content:  documents: 50
+
+> jallikattu_clean<-tm_map(jallikattu_corpus,removePunctuation)
+> jallikattu_clean<-tm_map(jallikattu_clean,content_transformer(tolower))
+> jallikattu_clean<-tm_map(jallikattu_clean,removeWords,stopwords("english"))
+> jallikattu_clean<-tm_map(jallikattu_clean,stripWhitespace)
+> jallikattu_clean<-tm_map(jallikattu_clean,removeWords,c("tamilnadu"))
+> wordcloud::wordcloud(jallikattu_clean)
+> wordcloud(jallikattu_clean,scale=c(4,0.5),max.words = 50,colors =rainbow(50))
+> wordcloud(jallikattu_clean,scale=c(4,0.5),colors =rainbow(50))
+> library(syuzhet)
+> sentiment<-get_nrc_sentiment(jallikattu_clean)
+Error in get_nrc_sentiment(jallikattu_clean) : 
+  Data must be a character vector.
+> jallikattu_clean<-as.character(jallikattu_clean)
+> sentiment<-get_nrc_sentiment(jallikattu_clean)
+> sentiment
+  anger anticipation disgust fear joy sadness surprise trust
+1     6           14       4    9  12       7        5    15
+2     0            0       0    0   0       0        0     0
+3     0            0       0    0   0       0        0     0
+  negative positive
+1       16       27
+2        0        0
+3        0        0
+> jallikattu<-cbind(sentiment,jallikattu_clean)
+> jallikattu
+  anger anticipation disgust fear joy sadness surprise trust
+1     6           14       4    9  12       7        5    15
+2     0            0       0    0   0       0        0     0
+3     0            0       0    0   0       0        0     0
+  negative positive
+1       16       27
+2        0        0
+3        0        0
+
+> total_sentiment<-data.frame(colSums(jallikattu[,c(1:10)]))
+> total_sentiment
+             colSums.jallikattu...c.1.10...
+anger                                     6
+anticipation                             14
+disgust                                   4
+fear                                      9
+joy                                      12
+sadness                                   7
+surprise                                  5
+trust                                    15
+negative                                 16
+positive                                 27
+
+> names(total_sentiment)<-"count"
+> total_sentiment<-cbind("sentiment"=row.names(total_sentiment),total_sentiment)
+> total_sentiment
+                sentiment count
+anger               anger     6
+anticipation anticipation    14
+disgust           disgust     4
+fear                 fear     9
+joy                   joy    12
+sadness           sadness     7
+surprise         surprise     5
+trust               trust    15
+negative         negative    16
+positive         positive    27
+
+> rownames(total_sentiment)<-NULL
+> total_sentiment
+      sentiment count
+1         anger     6
+2  anticipation    14
+3       disgust     4
+4          fear     9
+5           joy    12
+6       sadness     7
+7      surprise     5
+8         trust    15
+9      negative    16
+10     positive    27
+> ggplot2::ggplot(data=total_sentiment,aes(x=sentiment,y=count))+geom_bar(aes(fill=sentiment),stat="identity")
+> ggplot2::ggplot(data=total_sentiment,aes(x=sentiment,y=count))+geom_bar(aes(fill=sentiment),stat="identity")+ggtitle("Total sentiment score")
+> ggsave("myplot.pdf")
+Saving 6.96 x 4.27 in image
+> save.image("~/R/jallikattu_sentimental analysis .r.RData")
